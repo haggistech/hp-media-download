@@ -75,7 +75,7 @@ download_file () {
         fi
         echo -e "Extracting File....${Green}Please Wait${Normal}"
         echo
-        7zr x "/home/$currentuser/RetroPie/roms/$1" -o/home/$currentuser/RetroPie/roms -aoa
+        7zr x "/home/$currentuser/RetroPie/roms/$1" -o/home/$currentuser/RetroPie/roms/ -aoa
 	rm -rf "/home/$currentuser/RetroPie/roms/$1"
 	echo
 	echo
