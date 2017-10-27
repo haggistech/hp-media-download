@@ -3,12 +3,12 @@
 #
 # Hyperpie - https://www.hyperpie.org - https://www.facebook.com/groups/1158678304181964/
 #
-# Author: Mik McLean <haggistech@gmail.com>
+# Author: Mik McLean <$currentusertech@gmail.com>
 #
 # Version: 0.2b
 
 clear
-
+currentuser=$(whoami)
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' p7zip|grep "install ok installed")
 echo Checking for 7-Zip: $PKG_OK
 if [ "" == "$PKG_OK" ]; then
@@ -34,9 +34,9 @@ fi
 dialog --title "Warning" --msgbox 'Using this Script to download a new system will remove the old system and replace it, if you do not want to do this please exit now!!' 10 40
 
 check_download () {
-        if [ -f "$1" ];
+        if [ -f "/home/$currentuser/RetroPie/roms/$1" ];
         then
-		rm -rf $1
+		rm -rf /home/$currentuser/RetroPie/roms/$1
 		check_system "$1" "$2" "$3"
 	else
 		check_system "$1" "$2" "$3"
@@ -44,9 +44,9 @@ check_download () {
 }
 
 check_system () {
-	if [ -d "$2" ]; 
+	if [ -d "/home/$currentuser/RetroPie/roms/$2" ]; 
 	then
-		rm -rf $2
+		rm -rf /home/$currentuser/RetroPie/roms/$2
         	clear
         	download_file "$1" "$2" "$3"
 	else
@@ -59,11 +59,11 @@ download_file () {
         echo
         echo "Please wait....."
         echo
-        wget "http://hyperpie.teamzt.seedr.io/system_media/$1" -q --show-progress -P /home/haggis/RetroPie/roms/
+        wget "http://hyperpie.teamzt.seedr.io/system_media/$1" -q --show-progress -P /home/$currentuser/RetroPie/roms/
         echo
         echo "Pack Download Complete"
 	echo
-        md5="$(md5sum "/home/haggis/RetroPie/roms/$1" | awk {'print $1'})"
+        md5="$(md5sum "/home/$currentuser/RetroPie/roms/$1" | awk {'print $1'})"
         if [ "$md5" == "$3" ]
         then
                 echo
@@ -75,8 +75,8 @@ download_file () {
         fi
         echo -e "Extracting File....${Green}Please Wait${Normal}"
         echo
-        7zr x "/home/haggis/RetroPie/roms/$1" -o/home/haggis/RetroPie/roms
-	rm -rf "/home/haggis/RetroPie/roms/$1"
+        7zr x "/home/$currentuser/RetroPie/roms/$1" -o/home/$currentuser/RetroPie/roms -aoa
+	rm -rf "/home/$currentuser/RetroPie/roms/$1"
 	echo
 	echo
 	read -n 1 -s -p "Complete...Press any key to return to the menu"
