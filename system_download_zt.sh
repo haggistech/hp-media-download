@@ -46,7 +46,7 @@ check_download () {
 check_system () {
 	if [ -d "/home/$currentuser/RetroPie/roms/$2" ]; 
 	then
-		rm -rf /home/$currentuser/RetroPie/roms/$2
+#		rm -rf /home/$currentuser/RetroPie/roms/$2
         	clear
         	download_file "$1" "$2" "$3"
 	else
