@@ -62,6 +62,8 @@ download_file () {
         wget "http://hyperpie.teamzt.seedr.io/system_media/$1" -q --show-progress -P /home/$currentuser/RetroPie/roms/
         echo
         echo "Pack Download Complete"
+        echo
+        echo "Checking file for corruption...Please Wait....
 	echo
         md5="$(md5sum "/home/$currentuser/RetroPie/roms/$1" | awk {'print $1'})"
         if [ "$md5" == "$3" ]
