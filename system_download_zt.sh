@@ -8,7 +8,7 @@
 # Version: 0.2b
 
 clear
-currentuser=$(whoami)
+currentuser=$(who | awk {'print $1'} | head -n1)
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' p7zip|grep "install ok installed")
 echo Checking for 7-Zip: $PKG_OK
 if [ "" == "$PKG_OK" ]; then
