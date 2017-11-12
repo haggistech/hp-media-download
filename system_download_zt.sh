@@ -63,7 +63,7 @@ download_file () {
         echo
         echo "Pack Download Complete"
         echo
-        echo "Checking file for corruption...Please Wait....
+        echo "Checking file for corruption...Please Wait...."
 	echo
         md5="$(md5sum "/home/$currentuser/RetroPie/roms/$1" | awk {'print $1'})"
         if [ "$md5" == "$3" ]
@@ -151,7 +151,8 @@ $DIALOG --menu \
 	57 "wonderswan - (134M)"\
 	58 "wonderswancolor - (87M)"\
 	59 "zmachine - (9.9M)"\
-	60 "ZX Spectrum - (603M)" 2> $TMPFILE
+        60 "Amiga 32 CD - (981M)"\
+	61 "ZX Spectrum - (603M)" 2> $TMPFILE
 
 STATUS=$?
 ANSWER=`cat $TMPFILE`
@@ -538,7 +539,14 @@ case $ANSWER in
 	ROMMD5=5f74ec2b528faede0a33cd8cb6dbfdab
         check_download "$FILE" "$DIR" "$ROMMD5"
         ;;
-60) # ZX Spectum - (603M)
+60) # Amiga 32 CD - (981M)
+        clear
+        FILE=amigacd32.7z
+        DIR=amigacd32
+        ROMMD5=05159a7a2a54bf346b9d9b147d5e30bc
+        check_download "$FILE" "$DIR" "$ROMMD5"
+        ;;
+61) # ZX Spectum - (603M)
         clear
         FILE=ZX\ Spectrum.7z
         DIR=zxspectrum
