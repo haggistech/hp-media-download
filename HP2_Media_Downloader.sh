@@ -21,7 +21,7 @@ if (( EUID == 0 )); then
   exit -3
 fi
 
-dialog --title "Warning" --msgbox 'Using this Script to download a new system will remove the old system and replace it, if you do not want to do this please exit now!!' 10 40
+#dialog --title "Warning" --msgbox 'Using this Script to download a new system will remove the old system and replace it, if you do not want to do this please exit now!!' 10 40
 
 check_download () {
         if [ -f "/home/$currentuser/RetroPie/roms/$1" ];
@@ -49,7 +49,7 @@ download_file () {
         echo
         echo "Please wait....."
         echo
-        wget "http://hyperpie.teamzt.seedr.io/system_media/$1" -q --show-progress -P /home/$currentuser/RetroPie/roms/
+        wget "http://www.retrohaggis.com/hp2_media/$1" -q --show-progress -P /home/$currentuser/RetroPie/roms/
         echo
         echo "Pack Download Complete"
         echo
@@ -67,7 +67,7 @@ download_file () {
         fi
         echo -e "Extracting File....${Green}Please Wait${Normal}"
         echo
-        7zr x "/home/$currentuser/RetroPie/roms/$1" -o/home/$currentuser/RetroPie/roms/ -aoa
+        7z x "/home/$currentuser/RetroPie/roms/$1" -o/home/$currentuser/RetroPie/roms/ -aoa
 	rm -rf "/home/$currentuser/RetroPie/roms/$1"
 	echo
 	echo
