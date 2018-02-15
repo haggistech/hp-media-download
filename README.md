@@ -1,6 +1,6 @@
 # hp-media-download
 
-Author: Mik McLean
+Author: Mik McLean and Joyny
 URL: https://www.hyperpie.org
 
 This script will allow the user to download media packs for HyperPie releases
