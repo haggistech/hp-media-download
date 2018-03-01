@@ -41,7 +41,7 @@ then
     while read -r line; do
         DIR=$(head -1 /home/$currentuser/.attract/Attract\ Mode\ Setup/systems/"$line")
         ROMMD5=$(head -2 /home/$currentuser/.attract/Attract\ Mode\ Setup/systems/"$line" | tail -1)
-        rm -rf /home/pi/RetroPie/roms/$DIR
+        #rm -rf /home/pi/RetroPie/roms/$DIR
         echo "Downloading "$DIR" Image/Snap Pack..."
         echo
         wget "http://www.retrohaggis.com/hp2_media/$DIR.7z" -q --show-progress -P /home/$currentuser/RetroPie/roms/
