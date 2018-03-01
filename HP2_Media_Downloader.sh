@@ -45,6 +45,7 @@ then
         echo "Downloading "$DIR" Image/Snap Pack..."
         echo
         cd /home/pi/RetroPie/roms/
+        rm "$DIR.7z"
         aria2c -x4  "http://www.retrohaggis.com/hp2_media/$DIR.7z"
         echo
         echo "Pack Download Complete"
