@@ -44,7 +44,8 @@ then
         #rm -rf /home/pi/RetroPie/roms/$DIR
         echo "Downloading "$DIR" Image/Snap Pack..."
         echo
-        wget "http://www.retrohaggis.com/hp2_media/$DIR.7z" -q --show-progress -P /home/$currentuser/RetroPie/roms/
+        cd /home/pi/RetroPie/roms/
+        aria2c -x4  "http://www.retrohaggis.com/hp2_media/$DIR.7z"
         echo
         echo "Pack Download Complete"
         echo
