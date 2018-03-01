@@ -64,7 +64,7 @@ then
         echo -e "Extracting File....${Green}Please Wait${Normal}"
         sleep 2
         echo
-        7zr x "/home/$currentuser/RetroPie/roms/$DIR.7z" -o/home/$currentuser/RetroPie/roms/ -aoa
+        7z x "/home/$currentuser/RetroPie/roms/$DIR.7z" -o/home/$currentuser/RetroPie/roms/ -aoa
         rm -rf "/home/$currentuser/RetroPie/roms/$DIR.7z"
     done < <( echo "$choices" )
 echo "Done, returning to Attract Mode..."
